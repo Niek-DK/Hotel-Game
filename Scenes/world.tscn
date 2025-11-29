@@ -17,7 +17,7 @@ glow_enabled = true
 [node name="world" type="Node3D"]
 
 [node name="player" parent="." groups=["group_player"] instance=ExtResource("1_go701")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.254598, 0.70129037, -0.07258105)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.934382, 0.70129037, -0.07258105)
 movement_speed = 2.5
 head_bobbing_frequency = 4.0
 head_bobbing_amplitude = 0.02
