@@ -6,6 +6,7 @@
 *.mono
 *.cache/
 *.log
+*.blend1
 .godot/
 **/.godot/
 
