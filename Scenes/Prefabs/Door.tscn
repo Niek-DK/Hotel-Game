@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://dg5ei4keuednf"]
+
+[ext_resource type="PackedScene" uid="uid://b8wboa3hi7pli" path="res://Assets/Models/door.blend" id="1_ucnwf"]
+[ext_resource type="Script" uid="uid://u2o6q758yu2c" path="res://Scripts/Door.gd" id="2_vr6ds"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ucnwf"]
+size = Vector3(1.0183105, 2.1572266, 1.9970703)
+
+[sub_resource type="Animation" id="Animation_vr6ds"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.0943952, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ojga6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tlpjd"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.0943952, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjn54"]
+_data = {
+&"RESET": SubResource("Animation_ojga6"),
+&"close": SubResource("Animation_tlpjd"),
+&"open": SubResource("Animation_vr6ds")
+}
+
+[node name="door" instance=ExtResource("1_ucnwf")]
+script = ExtResource("2_vr6ds")
+
+[node name="interact area" type="Area3D" parent="." index="0"]
+
+[node name="interact collision" type="CollisionShape3D" parent="interact area" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020751953, 1.0790629, -0.0014648438)
+shape = SubResource("BoxShape3D_ucnwf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorFrame/Door" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_tjn54")
+}

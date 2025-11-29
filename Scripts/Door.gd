@@ -1,8 +1,9 @@
 extends Node3D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $DoorFrame/Door/AnimationPlayer
 @onready var interact_area: Area3D = $"interact area"
 var player_inside_interact_area: Node3D = null
+var is_open = false
 
 func _ready():
 	#set up the enter callbacks
@@ -20,10 +21,13 @@ func on_body_exited(body) -> void:
 		
 	
 func _physics_process(_delta: float) -> void:
-	if self.player_inside_interact_area == null:
+	if self.player_inside_interact_area == null or self.animation_player.is_playing():
 		return
+		
 	var interact: bool = player_inside_interact_area.on_door_interact()
 	
 	if interact:
-		self.animation_player.play("open")
+		self.animation_player.play("close" if self.is_open else "open")
+		self.is_open = not self.is_open
+		
 	

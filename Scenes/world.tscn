@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0h40f71q3spd"]
+[gd_scene load_steps=9 format=3 uid="uid://c0h40f71q3spd"]
 
 [ext_resource type="PackedScene" uid="uid://d4hge3av4c1av" path="res://Scenes/Prefabs/Player.tscn" id="1_go701"]
+[ext_resource type="PackedScene" uid="uid://dg5ei4keuednf" path="res://Scenes/Prefabs/Door.tscn" id="2_go701"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_soepf"]
 
@@ -60,3 +61,6 @@ use_collision = true
 size = Vector3(20, 0.1, 20)
 material = SubResource("ShaderMaterial_go701")
 script = SubResource("GDScript_a02cp")
+
+[node name="door" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7287233, 0.3185873, 6.016491)
