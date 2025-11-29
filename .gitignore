@@ -1,12 +1,13 @@
 # Godot-specific
 .import/
 .export/
-*.godot
 *.tmp
 *.import
 *.mono
 *.cache/
 *.log
+.godot/
+!*.godot
 
 
 .DS_Store
