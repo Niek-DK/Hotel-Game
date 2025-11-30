@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hotel Game"
-run/main_scene="uid://c0h40f71q3spd"
+run/main_scene="uid://brxkcu0rt0fws"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

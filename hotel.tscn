@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://brxkcu0rt0fws"]
+
+[ext_resource type="PackedScene" uid="uid://djqac841wpb37" path="res://Assets/levels/Hotel.blend" id="1_cnobk"]
+[ext_resource type="PackedScene" uid="uid://d4hge3av4c1av" path="res://Scenes/Prefabs/Player.tscn" id="2_syufm"]
+
+[sub_resource type="Environment" id="Environment_cnobk"]
+background_energy_multiplier = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1879
+volumetric_fog_albedo = Color(0.77993065, 0.77724326, 0.75974905, 1)
+
+[node name="Hotel" instance=ExtResource("1_cnobk")]
+
+[node name="player" parent="." index="8" instance=ExtResource("2_syufm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93329185, 0.23819202, 1.3666699)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="30"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 16.895308, 2.3867054, -0.018132538)
+light_energy = 0.393
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="31"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 10.99016, 2.3867054, -0.018132538)
+light_energy = 0.393
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." index="32"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 6.8470078, 2.3867054, -0.018132538)
+light_energy = 0.393
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." index="33"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.372478, 2.3867054, -0.042075545)
+light_energy = 0.393
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="." index="34"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.372478, 2.3867054, -2.486274)
+light_energy = 0.393
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="." index="35"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.372478, 2.3867054, 2.2675765)
+light_energy = 0.393
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="36"]
+environment = SubResource("Environment_cnobk")
