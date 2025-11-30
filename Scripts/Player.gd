@@ -59,7 +59,12 @@ func _input(event):
 	#vertical
 	head.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
 	head.rotation.x = clampf(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
-		
+
+func _process(delta: float) -> void:
+	DebugOverlay.push_item("id_player_label_position", "player position: {pos}".format({"pos": self.position}))
+	DebugOverlay.push_item("id_player_label_velocity", "player velocity: {vel}".format({"vel": self.velocity}))
+	
+
 func _physics_process(delta: float) -> void:
 	
 	#gravity
