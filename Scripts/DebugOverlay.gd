@@ -29,3 +29,11 @@ func push_item(id: String, message: String, color: Color = Color.CHARTREUSE) -> 
 	
 	label.text = "[Debug]: {msg}".format({"msg": message}) 
 	label.modulate = color
+
+func pop_item(id: String) -> void:
+	if not _label_cache.has(id):
+		print("Overlay does not contain a item with id: {id}".format({"id": id}))
+		return
+	
+	_label_cache[id].queue_free()
+	_label_cache.erase(id)	

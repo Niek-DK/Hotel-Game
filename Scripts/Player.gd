@@ -60,10 +60,16 @@ func _input(event):
 	head.rotate_x(deg_to_rad(-event.relative.y * sensitivity))
 	head.rotation.x = clampf(head.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
+static var counter = 0
+
 func _process(delta: float) -> void:
 	DebugOverlay.push_item("id_player_label_position", "player position: {pos}".format({"pos": self.position}))
 	DebugOverlay.push_item("id_player_label_velocity", "player velocity: {vel}".format({"vel": self.velocity}))
 	
+	counter += 1
+	
+	if counter > 250:
+		DebugOverlay.pop_item("id_player_label_position")
 
 func _physics_process(delta: float) -> void:
 	
